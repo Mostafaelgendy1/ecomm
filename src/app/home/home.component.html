@@ -1,0 +1,30 @@
+
+
+
+
+
+<app-slider></app-slider>
+<app-categories></app-categories>
+
+<input  class="form-control w-75 m-auto " [(ngModel)]='search'  type="text" placeholder="search">
+<div class="row  gy-3">
+    <div  id="s" *ngFor="let item of products|search:search"  class="product col-md-2">
+ <a class="text-decoration-none " [routerLink]="['/Productdetails',item._id]">
+    <div class="p-2 ">
+        <img class="w-100 h-75 mb-2" [src]="item.imageCover">
+        <span class="text-main ">{{item.category.name|uppercase}}</span>
+        <h3 class="h6">{{item.title.split(" ").slice(0,2).join("")}}</h3>
+        <div class="d-flex justify-content-between">
+            <span class="text-muted">{{item.price | currency }} egp</span>
+            <div>
+                <i class="text-warning fa-solid fa-star"></i>
+                <span>{{item.ratingsAverage}}</span>
+            
+            </div>
+        </div>
+    </div>
+</a>
+<button  (click)="addtocart(item._id)" class="btn bg-main w-100 text-white">+add</button>
+    </div>
+     
+</div>

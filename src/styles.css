@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@300&family=Lato:ital,wght@0,400;1,100;1,400&family=Lobster&family=Montserrat:wght@200&family=Moon+Dance&family=Open+Sans:ital,wght@1,800&family=Pacifico&family=Pixelify+Sans&display=swap');
+:root{
+    --main-color:rgba(81, 197, 81, 0.807);
+--main-font:'Encode Sans Condensed', sans-serif;
+}
+
+.text-main{
+    color:var(--main-color)
+} 
+.bordermain{
+    border: 2px solid var(--main-color);
+}
+.body{
+    font-family: var(--main-font);
+}
+.bg-main{
+    background-color: var(--main-color);
+}
+button:hover{
+    background-color: var(--main-color)!important;
+    box-shadow: 1px 1px 12px -1px!important;
+}
+button{
+    transform: all 1s;
+}
+.product{
+    overflow: hidden;
+    transition: all 1s;
+}
+.product:hover{
+box-shadow: 1px 1px 3px -1px!important; 
+
+} 
+.product button{
+    transition: all 1s;
+    transform: translateY(130%);
+    opacity: 0;
+}
+.product:hover button{
+    transform: translateY(0%);
+    opacity: 1;
+}
+.cusor-pointer{
+    cursor: pointer;
+}
+.owl-theme .owl-nav [class*=owl-] {
+background-color: var(--main-color);
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: rgba(81, 197, 81, 0.658)!important}

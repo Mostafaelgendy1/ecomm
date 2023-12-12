@@ -1,0 +1,27 @@
+<div class="w-75 m-auto ">
+    <p class="mt-5 text-main">login now:</p>
+    
+    <div *ngIf="apieeror" class="alert alert-danger">{{apieeror}}</div>
+
+    <form class="" (ngSubmit)="handlelogin(loginform)" [formGroup]="loginform">
+        <label for="email">email:</label>
+        <input class="form-control mb-2 " formControlName="email" type="email" id="email">
+<div *ngIf="loginform.get('email')?.errors&&    loginform.get('password')?.touched"  class="alert alert-danger">
+    <p  *ngIf="loginform.get('email')?.getError('email')">this is not email</p>
+    <p *ngIf="loginform.get('email')?.getError('required')"> this is required</p>
+</div>
+
+
+        <label for="password">password:</label>
+        <input class="form-control mb-2 " formControlName="password" type="password" id="password">
+        <div *ngIf="loginform.get('password')?.errors&&loginform.get('password')?.touched" class="alert alert-danger">
+            <p *ngIf="loginform.get('password')?.getError('pattern')" class="m-0" n>password must start with cpitle char and 3,12 charor simbol</p>
+            <p *ngIf="loginform.get('password')?.getError('required')" class="m-0" >this is required</p>
+        </div>
+        <button [disabled]="loginform.invalid" class=" ms-auto d-block btn bg-main border-0"  type="submit">
+
+            <span *ngIf="isload" ><i class="fa-solid fa-spinner fa-spin"></i></span>
+            <span *ngIf="!isload" >login</span>
+        </button>
+    </form>
+</div>

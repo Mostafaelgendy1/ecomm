@@ -1,0 +1,26 @@
+<div class="bg-light mt-5 p-2">
+  <p class="fw-bold fs-3"> buy cart :</p> 
+  <p *ngIf="numcart==0" class="alert alert-danger">you can buy from home</p>
+  <p *ngIf="numcart>0" class="alert alert-info">you buy {{numcart}}</p>
+    <p class="fs-2">total price:<span class="text-main">{{cartdetails?.totalCartPrice
+    }} egp</span></p>
+    <div class="row align-items-center mb-2"*ngFor="let item of cartdetails?.products">
+    <div class="col-2">
+        <img class="w-100" [src]="item?.product?.imageCover">
+    </div>
+    <div class="col-10 d-flex justify-content-between">
+        <div>
+        <h6>{{item.product?.category.name}}</h6>
+        <h4 > price:<span class="text-main">{{item?.price}}</span></h4>
+        <p (click)="removecart(item.product._id )">remove <i class="text-main fa-solid fa-trash"></i></p>
+    </div>
+    <div>
+        <button class="btn bordermain" (click)="updatecart(item.product._id,item.count+1)">+</button>
+        <span class="mx-2">{{item?.count}}</span>
+        <button  (click)="updatecart(item.product._id,item.count-1)" class="btn bordermain">-</button>
+    </div>
+</div>
+</div>
+<div class="w-25">
+<button routerLink="/checkout" class="btn bordermain">online payment</button></div>
+</div>

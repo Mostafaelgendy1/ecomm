@@ -1,0 +1,14 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of category">
+    <ng-template carouselSlide >
+        <a class="text-decoration-none" (click)="spasificcat(slide._id)">
+        <img height="200" [src]="slide.image" [alt]="slide.name" >
+        <h4 class="fw-bolder text-muted ">{{slide.name}}</h4>
+     
+      </a>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
+  
+  

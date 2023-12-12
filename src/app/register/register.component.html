@@ -1,0 +1,44 @@
+<div class="w-75 p-5">
+    regester now:
+<div *ngIf="apierror" class="alert alert-danger">{{apierror}}</div>
+    <form (ngSubmit)="handle(regesterrform)" [formGroup]="regesterrform" class="">
+<label for="name">name:</label>
+<input class="form-control mb-2 " formControlName="name" type="text" id="name">
+<div class="alert alert-danger " *ngIf="regesterrform.get('name')?.errors &&regesterrform.get('name')?.touched">
+    <p class="m-0" *ngIf="regesterrform.get('name')?.getError('minlength')" >min lenght is 3</p>
+    <p class="m-0"*ngIf="regesterrform.get('name')?.getError('maxlength')"  >max lenght is 10</p>
+    <p class="m-0"*ngIf="regesterrform.get('name')?.getError('required')" >name is required</p>
+</div>
+<label for="email">email:</label>
+<input class="form-control mb-2 " formControlName="email" type="email" id="email">
+<div class="alert alert-danger " *ngIf="regesterrform.get('email')?.errors &&regesterrform.get('email')?.touched">
+    <p class="m-0" *ngIf="regesterrform.get('email')?.getError('email')" >this not valid email</p>
+    
+    <p class="m-0"*ngIf="regesterrform.get('email')?.getError('required')" >email is required</p>
+</div>
+<label for="password">password:</label>
+<input class="form-control mb-2 " formControlName="password" type="password" id="password">
+<div class="alert alert-danger" *ngIf="regesterrform.get('password')?.errors&&regesterrform.get('password')?.touched">
+<p *ngIf="regesterrform.get('password')?.getError('pattern')">password must start with cpitle char and 3,12 charor simbol</p>
+<p *ngIf="regesterrform.get('password')?.getError('required')">password is required</p>
+</div>
+<label for="repassword">repassword</label>
+<input class="form-control mb-2 " formControlName="rePassword" type="password" id="repassword">
+<div class="alert alert-danger" *ngIf="regesterrform.get('rePassword')?.errors&&regesterrform.get('rePassword')?.touched">
+    <p *ngIf="regesterrform.get('rePassword')?.getError('pattern')">password must start with cpitle char and 3,12 charor simbol</p>
+    <p *ngIf="regesterrform.get('rePassword')?.getError('passwordmath')">password not match</p>
+    <p *ngIf="regesterrform.get('rePassword')?.getError('required')">repassword is required</p>
+    </div>
+<label for="phone">phone:</label>
+<input class="form-control mb-2 " formControlName="phone" type="tel" id="phone">
+<div class="alert alert-danger" *ngIf="regesterrform.get('phone')?.errors&&regesterrform.get('phone')?.touched">
+    <p *ngIf="regesterrform.get('phone')?.getError('pattern')">this is not phone</p>
+    <p *ngIf="regesterrform.get('phone')?.getError('required')">phone is required</p>
+    </div>
+<button  class=" ms-auto d-block btn bg-main border-0"  type="submit">
+    <span *ngIf="isload==true"><i class="fa-solid fa-spinner fa-spin"></i></span>
+    <span *ngIf="!isload==true">regester</span>
+</button>
+    </form>
+  <a class=" text-decoration-none d-block text-center cusor-pointer text-main" href="/login">are you have an acount?</a>
+</div>

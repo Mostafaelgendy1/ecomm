@@ -1,0 +1,14 @@
+<div class="p-5 mt-5">
+    
+<form [formGroup]="shipingadress" (ngSubmit)="handleadress(shipingadress)">
+<div class="w-75 m-auto">
+    <label  >details:</label>
+    <input  formControlName="details" class="form-control mb-2" type="text">
+    <label>phone:</label>
+    <input formControlName="phone" class="form-control mb-2 " type="phone">
+    <label>city:</label>
+    <input formControlName="city" class="form-control mb-2" type="city">
+    <button class="btn bg-main" type="submit">submit</button>
+</div>
+</form>
+</div>
